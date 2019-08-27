@@ -14,3 +14,7 @@ spring:
   sleuth:
     sampler:
       probability: 1
+
+#环境和分支得配置
+env: default
+branch: master
