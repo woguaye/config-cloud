@@ -1,0 +1,29 @@
+server:
+  port: 9000
+
+#服务名称
+spring:
+  application:
+    name: api-gateway
+
+#指定注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#自定义路由映射
+zuul:
+  routes:
+    #自定义路由映射
+    order-server: /apigateway/order/**
+    product-server: /apigateway/product/**
+  #使用通配符忽略部分服务，这部分服务不能通过网关访问，只能通过自定义的路径访问
+  ignored-patterns: /*-server/**
+  #忽略整个服务，不对外提供接口
+  #ignored-services: product-server
+  #处理http请求头为空的问题
+  sensitive-headers:
+
+env: test
+branch: master
