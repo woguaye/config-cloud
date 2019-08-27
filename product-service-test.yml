@@ -17,4 +17,4 @@ spring:
 
 #环境和分支得配置
 env: test
-branch: master
+branch: test
